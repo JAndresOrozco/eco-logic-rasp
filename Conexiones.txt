@@ -1,0 +1,3 @@
+Sensor temperatura y humedad ambiental:
+self._pin = 13
+
