@@ -3,8 +3,8 @@
 
 #define FIREBASE_HOST "https://eco-logic-1016b.firebaseio.com"
 #define FIREBASE_AUTH "hwohmdzPWMwyxcXM9YilE5Aokm3gUJ2jV2MfUzWg"
-#define WIFI_SSID "ARRIS-9112"
-#define WIFI_PASSWORD "B852D2E0616037E4"
+#define WIFI_SSID ""
+#define WIFI_PASSWORD ""
 
 FirebaseData firebaseData;
 String ruta = "/sensor_temperatura";
