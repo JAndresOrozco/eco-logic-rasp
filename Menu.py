@@ -1,5 +1,7 @@
 import sys
 import time
+import socket
+
 from bd import Mongo
 from Sensor import Sensor
 from Adafruit import Adafruit
@@ -31,6 +33,11 @@ class Menu:
     
     def run(self):
         try:
+            socket.create_connection(('google.com', 80))
+            # Send data to Firebase
+        except OSError:
+            print("Sin conexion a Internet...")
+
             while True:
                 self.leerSensorTyH()
                 self.publicaDatos()
@@ -38,7 +45,3 @@ class Menu:
                 time.sleep(12)
             else:
                 print("Tiempo excedido")
-
-        except KeyboardInterrupt:
-            print('Pantalla limpiada')
-            self._lcd.limpiarPantalla()
