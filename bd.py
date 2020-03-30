@@ -13,17 +13,17 @@ class Mongo:
         try:
             self._client = pymongo.MongoClient(URI_CONNECTION)
             print ('OK -- Connected to MongoDB at server %s' % (MONGODB_HOST))
-            self._db = self._client['sensorTyH']
-            self._cDatos = self._db['Datos']
+            self._db = self._client['Ecologic']
+            self._coleccion = self._db['Datos']
             
         except pymongo.errors.ServerSelectionTimeoutError as error:
             print ('Error with MongoDB connection: %s' % error)
         except pymongo.errors.ConnectionFailure as error:
             print ('Could not connect to MongoDB: %s' % error)
         
-    def insertarDatos(self,t,h,f):
-        c = self._cDatos.find()
-        d = self._cDatos.insert({"_id":c.count()+1,"temperatura":t,"humedad":h,"fecha":f})
+    def insertarDatos(self, temperatura, humedad, humedadPlanta, fecha):
+        c = self._coleccion.find()
+        d = self._coleccion.insert({"_id":c.count()+1,"temperatura":temperatura,"humedad":humedad, "humedad_planta":humedadPlanta,"fecha":fecha})
         #print(str(d))
         
 
